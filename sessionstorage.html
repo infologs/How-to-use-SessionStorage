@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LocalStorage Demo</title>
+    <script>
+        function CreateSession() {
+            sessionStorage.setItem("EmailID", document.getElementById("txtSessionValue").value);
+        }
+
+        function GetSessionValue() {
+            if (sessionStorage.EmailID) {
+                document.getElementById("lblEmailID").innerHTML = sessionStorage.getItem("EmailID").toString();
+            } else {
+                document.getElementById("lblEmailID").innerHTML = "No session is created";
+            }
+        }
+
+        function LogoutFromApp() {
+            sessionStorage.clear();
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="txtSessionValue" placeholder="Enter email ID" /><br/>
+    <input type="button" onclick="CreateSession()"   value="Login to App" /><br/><br/>
+
+
+    <label id="lblEmailID"></label><br/>
+    <input type="button" onclick="GetSessionValue()" value="Get Session Value" /><br/><br/>
+
+
+
+    <input type="button" onclick="LogoutFromApp()" value="logout" />
+</body>
+</html>
